@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/galleryFragment">
+
+    <fragment
+        android:id="@+id/addArtFragment"
+        android:name="com.example.artbookwithnavigationkt.View.AddArtFragment"
+        android:label="fragment_add_art"
+        tools:layout="@layout/fragment_add_art" >
+        <action
+            android:id="@+id/action_addArtFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.example.artbookwithnavigationkt.View.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_addArtFragment"
+            app:destination="@id/addArtFragment" />
+        <action
+            android:id="@+id/action_galleryFragment_to_savedArtGallery"
+            app:destination="@id/savedArtGallery" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedArtGallery"
+        android:name="com.example.artbookwithnavigationkt.View.SavedArtGallery"
+        android:label="fragment_saved_art_gallery"
+        tools:layout="@layout/fragment_saved_art_gallery" >
+        <action
+            android:id="@+id/action_savedArtGallery_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <argument
+            android:name="info"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
