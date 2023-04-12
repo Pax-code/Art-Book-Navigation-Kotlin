@@ -58,21 +58,20 @@ class SavedArtGallery : Fragment() {
                 compositeDisposable.add(artDao.delete(it)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponseDelete))
+                    .subscribe(this::handleResponseDeleted))
             }
         }
     }
-    private fun handleResponseDelete(){
+    private fun handleResponseDeleted(){
         val action = SavedArtGalleryDirections.actionSavedArtGalleryToGalleryFragment()
         Navigation.findNavController(requireView()).navigate(action)
     }
     private fun handleResponse(art: Art) {
         artFromMain = art
-        binding.artDate.setText(art.artDate)
-        binding.artistName.setText("${art.artistName}")
-        binding.artName.setText(art.artName)
+        binding.artDate.text = "\uD83D\uDCC6 : ${art.artDate}"
+        binding.artistName.text = "\uD83E\uDDD1\uD83C\uDFFB\u200D\uD83C\uDFA8 : ${art.artistName}"
+        binding.artName.text= "\uD83D\uDDBC : ${art.artName}"
         art.artImage?.let {
-            println("çalıştı")
             val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             binding.savedArtView.setImageBitmap(bitmap)
         }

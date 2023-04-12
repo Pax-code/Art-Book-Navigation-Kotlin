@@ -35,9 +35,6 @@
             android:id="@+id/action_savedArtGallery_to_galleryFragment"
             app:destination="@id/galleryFragment" />
         <argument
-            android:name="info"
-            app:argType="string" />
-        <argument
             android:name="id"
             app:argType="integer" />
     </fragment>

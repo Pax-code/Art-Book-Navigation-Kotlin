@@ -213,7 +213,7 @@ class AddArtFragment : Fragment() {
             val smallBitmap = makeSmallerBitmap(selectedBitmap!!,300)
 
             val outputStream = ByteArrayOutputStream()
-            smallBitmap.compress(Bitmap.CompressFormat.PNG,50,outputStream)
+            smallBitmap.compress(Bitmap.CompressFormat.PNG,80,outputStream)
             val byteArray = outputStream.toByteArray()
 
             val art = Art(artName,artistName,artDate,byteArray)
